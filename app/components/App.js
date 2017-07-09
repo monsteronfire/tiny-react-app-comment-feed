@@ -1,10 +1,11 @@
 import React from 'react';
+import Container from './Container';
 
 class App extends React.Component {
   render() {
     return (
-      <div className='container'>
-        App
+      <div className='main-container'>
+        <Container/>
       </div>
     )
   }
