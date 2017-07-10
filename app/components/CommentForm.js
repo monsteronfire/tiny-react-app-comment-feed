@@ -4,8 +4,8 @@ class CommentForm extends React.Component {
   render() {
     return (
       <form className='comment-form'>
-        <input type='text'/>
-        <button>Add comment</button>
+        <textarea></textarea>
+        <button onClick={this.props.action}>Add comment</button>
       </form>
     )
   }
