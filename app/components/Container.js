@@ -23,7 +23,7 @@ class Container extends React.Component {
     };
     this.setState((prevState) => ({
       comments: prevState.comments.concat(newComment),
-      text: ' ',
+      text: '',
     }));
   }
 
@@ -34,7 +34,7 @@ class Container extends React.Component {
   render() {
     return (
       <div className='comment-container'>
-        <CommentForm value={this.state.text} onSubmit={this.handleSubmit} onChange={this.handleChange} />
+        <CommentForm text={this.state.text} onSubmit={this.handleSubmit} onChange={this.handleChange} />
         <CommentList comments={this.state.comments} />
       </div>
     )
