@@ -17,6 +17,14 @@ class Container extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
+    var newComment = {
+      text: this.state.text,
+      id: Date.now(),
+    };
+    this.setState((prevState) => ({
+      comments: prevState.comments.concat(newComment),
+      text: ' ',
+    }));
   }
 
   handleChange(event) {
@@ -27,7 +35,7 @@ class Container extends React.Component {
     return (
       <div className='comment-container'>
         <CommentForm value={this.state.text} onSubmit={this.handleSubmit} onChange={this.handleChange} />
-        <CommentList/>
+        <CommentList comments={this.state.comments} />
       </div>
     )
   }
