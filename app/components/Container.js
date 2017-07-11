@@ -7,21 +7,26 @@ class Container extends React.Component {
     super(props);
 
     this.state = {
-
+      text: '',
+      comments: [],
     };
 
-    this.handleClick = this.handleClick.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
-  handleClick(event) {
+  handleSubmit(event) {
     event.preventDefault();
-    console.log('hello');
+  }
+
+  handleChange(event) {
+    this.setState({text: event.target.value});
   }
 
   render() {
     return (
       <div className='comment-container'>
-        <CommentForm action={this.handleClick} />
+        <CommentForm value={this.state.text} onSubmit={this.handleSubmit} onChange={this.handleChange} />
         <CommentList/>
       </div>
     )
